@@ -1,0 +1,66 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        A GESTÃO LOGÍSTICA EM SAÚDE: CONCEITOS, CONTEXTO E HISTÓRICO</p>
+</div>
+<div style="margin-top: 65px;margin-left: 52px;width: 785px;">
+    <p>Além da diferença entre dado e informação, precisamos compreender que existem diferentes tipos de dados.</p>
+    <p>Clique para
+    conhecê-los.</p>
+    <div>
+        <img src="recursos/imgs/img-slide-17.svg">
+    </div>
+    <p>Para ficar mais claro, os dados primários podem ser obtidos pela equipe de saúde em uma vista domiciliar ou por meio do
+    prontuário do paciente. </p>
+    <p>Por sua vez, os dados secundários são aqueles provenientes de sistemas de informação, por
+    exemplo, o número de casos de hanseníase no Distrito Federal notificados em 2020 no sistema de informação de agravos de
+    notificação (SINAN).</p>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: white;font-size: 12px;">MÓDULO 2</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">CONHECIMENTOS ESTRATÉGICOS PARA A
+            GESTÃO DA ESF</p>
+        <p style="margin-left: 140px;color: white;font-size: 12px;">UNIDADE 9</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">GESTÃO DE MATERIAIS, MEDICAMENTOS E
+            INSUMOS</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
